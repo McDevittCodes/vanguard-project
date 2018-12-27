@@ -1,0 +1,140 @@
+/* variables */
+$break-point: 764px;
+$header-height: 74px;
+$footer-height: 155px;
+
+$white: #fff;
+$offwhite: #e4e4e4;
+$light-gray: #f1f1f1;
+$gray: #cbcbcb;
+$dark-gray: #636363;
+$black: #000;
+$red: #ad474e;
+
+/* css reset */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  padding: 0 25px;
+}
+
+/* Grid Helpers */
+.grid {
+  display: grid;
+  height: 100%;
+  &.grid__layout {
+    @media screen and (min-width: $break-point) {
+      grid-template-columns: auto auto;
+      grid-template-rows: $header-height auto $footer-height;
+      grid-template-areas: "navbar navbar" "body-left body-right" "search search";
+    }
+    @media screen and (max-width: $break-point) {
+      grid-template-columns: auto;
+      grid-template-rows: $header-height auto auto $footer-height;
+      grid-template-areas: "navbar" "body-left" "body-right" "search";
+    }
+  }
+}
+
+/*BODY*/
+
+.body__left {
+  grid-area: body-left;
+  align-self: center;
+
+  .main-text {
+    font-weight: 700;
+    color: $black;
+    @media screen and (min-width: $break-point) {
+      text-align: right;
+      font-size: 54px;
+    }
+    @media screen and (max-width: $break-point) {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 36px;
+    }
+  }
+}
+
+.body__right {
+  grid-area: body-right;
+  align-self: center;
+  @media screen and (min-width: $break-point) {
+    justify-self: start;
+  }
+  @media screen and (max-width: $break-point) {
+    justify-self: center;
+  }
+  img {
+    height: 100%;
+    max-height: 635px;
+  }
+}
+
+/*SEARCH*/
+
+.search-form {
+  grid-area: search;
+  align-self: stretch;
+  padding: 0 45px;
+
+  .search {
+    position: relative;
+    .search__input {
+      padding: 15px;
+      font-size: 17px;
+      height: 80px;
+      border: none;
+      width: 100%;
+      background: $light-gray;
+    }
+
+    .search__icon {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 15px;
+      color: $gray;
+    }
+  }
+}
+
+/*NAVBAR*/
+
+.topnav {
+  grid-area: navbar;
+  align-self: end;
+  padding-bottom: 14px;
+  border-bottom: 2px solid $offwhite;
+
+  .menu {
+    text-decoration: none;
+    margin-right: 30px;
+    width: 80px;
+    display: inline-block;
+    color: $dark-gray;
+    cursor: pointer;
+    font-weight: 100;
+
+    @media screen and (max-width: $break-point) {
+      margin-right: 0;
+    }
+
+    i {
+      position: relative;
+      left: 5px;
+      top: 3px;
+      color: $red;
+    }
+  }
+
+}

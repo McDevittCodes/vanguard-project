@@ -1,0 +1,103 @@
+/* variables */
+/* css reset */
+* {
+  box-sizing: border-box; }
+
+html, body {
+  font-family: sans-serif;
+  margin: 0;
+  height: 100%; }
+
+body {
+  padding: 0 25px; }
+
+/* Grid Helpers */
+.grid {
+  display: grid;
+  height: 100%; }
+  @media screen and (min-width: 764px) {
+    .grid.grid__layout {
+      grid-template-columns: auto auto;
+      grid-template-rows: 74px auto 155px;
+      grid-template-areas: "navbar navbar" "body-left body-right" "search search"; } }
+  @media screen and (max-width: 764px) {
+    .grid.grid__layout {
+      grid-template-columns: auto;
+      grid-template-rows: 74px auto auto 155px;
+      grid-template-areas: "navbar" "body-left" "body-right" "search"; } }
+
+/*BODY*/
+.body__left {
+  grid-area: body-left;
+  align-self: center; }
+  .body__left .main-text {
+    font-weight: 700;
+    color: #000; }
+    @media screen and (min-width: 764px) {
+      .body__left .main-text {
+        text-align: right;
+        font-size: 54px; } }
+    @media screen and (max-width: 764px) {
+      .body__left .main-text {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 36px; } }
+
+.body__right {
+  grid-area: body-right;
+  align-self: center; }
+  @media screen and (min-width: 764px) {
+    .body__right {
+      justify-self: start; } }
+  @media screen and (max-width: 764px) {
+    .body__right {
+      justify-self: center; } }
+  .body__right img {
+    height: 100%;
+    max-height: 635px; }
+
+/*SEARCH*/
+.search-form {
+  grid-area: search;
+  align-self: stretch;
+  padding: 0 45px; }
+  .search-form .search {
+    position: relative; }
+    .search-form .search .search__input {
+      padding: 15px;
+      font-size: 17px;
+      height: 80px;
+      border: none;
+      width: 100%;
+      background: #f1f1f1; }
+    .search-form .search .search__icon {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 15px;
+      color: #cbcbcb; }
+
+/*NAVBAR*/
+.topnav {
+  grid-area: navbar;
+  align-self: end;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #e4e4e4; }
+  .topnav .menu {
+    text-decoration: none;
+    margin-right: 30px;
+    width: 80px;
+    display: inline-block;
+    color: #636363;
+    cursor: pointer;
+    font-weight: 100; }
+    @media screen and (max-width: 764px) {
+      .topnav .menu {
+        margin-right: 0; } }
+    .topnav .menu i {
+      position: relative;
+      left: 5px;
+      top: 3px;
+      color: #ad474e; }
+
+/*# sourceMappingURL=styles.css.map */
